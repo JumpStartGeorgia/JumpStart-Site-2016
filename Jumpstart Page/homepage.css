@@ -2,7 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 html,body{
-	font-size: 1em;
 	height: 100%;
 	margin: 0;
 	background-color: white;
@@ -338,9 +337,29 @@ ul{
     color: #4a4a4a;
 }
 
-.we-each p span{
+.we-each p span {
 	color: rgba(208,72,29,1);
 }
+
+				/*WHAT WE DO*/
+.do {
+	height: 85vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.do div{
+	height: 100%;
+	width: calc(150vh / 4);
+	margin: 0 1vh 0 1vh;	
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+
+
+
 		/*MEDIA QUERIES*/
 				/*NAV BAR*/
 
