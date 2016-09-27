@@ -133,6 +133,23 @@ ul{
 	background-color: white;
 }
 
+
+.section-name{
+	color: #4a4a4a;
+	font-size: calc(0.7vw + 1.2vh);
+	font-family: 'Varela Round';
+	font-weight: 200;
+	margin: 0 0 1vh 0;
+}
+
+.section-line{
+	background-color: black;
+	height: 1px;
+	width: 10vw;
+	margin-bottom: 2vh;
+}
+
+
 				/*FIRST SECTION*/
 
 #first-section{
@@ -230,7 +247,7 @@ ul{
 	justify-content: space-around;
 	align-items: center;
 	font-family: 'Poppins', sans-serif;
-	background-color: rgba(208,72,29,1);
+	background-color: #676361;
 }
 
 .donate .us-text {
@@ -294,20 +311,6 @@ ul{
 	align-items: center;
 }
 
-#mission p{
-	font-size: calc(0.7vw + 1.2vh);
-	font-family: 'Varela Round';
-	font-weight: 200;
-	margin: 0 0 1vh 0;
-}
-
-#mission div{
-	background-color: black;
-	height: 1px;
-	width: 10vw;
-	margin: 0;
-}
-
 .we .we-each {
 	width: 35vw;
 	height: 15vh;
@@ -342,23 +345,66 @@ ul{
 }
 
 				/*WHAT WE DO*/
-.do {
-	height: 85vh;
+
+.do-wrap {
+	position: relative;
 	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	margin-top: 5vh;
+	color: white;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 1.6em;
+}
+
+
+.do-headline { 
+	width: 100%;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 
-.do div{
+
+.do {
+	margin-top: 4vh;
+	height: 65vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.do-whole-text{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.do div {
 	height: 100%;
-	width: calc(150vh / 4);
-	margin: 0 1vh 0 1vh;	
+	width: calc(180vh / 4);
+	margin: 0 0.7vh 0 0.7vh;	
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
+.do div div {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	text-align: center;
+	background-color: rgba(0,0,0,0.4);
+	display: flex;
+	justify-content: center;
+}
 
+.do div div p {
+	padding: 35% 2% 2% 2%;
 
+}
 
 		/*MEDIA QUERIES*/
 				/*NAV BAR*/

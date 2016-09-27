@@ -1,11 +1,11 @@
 
 var highlight_content = [{
 						"text": "Runing on the Kururu Beach ",
-						"image": "http://www.bookicious.com/img/bk.jpg",
+						"image": "http://www.nortconsulting.net/img_external/gallery/laptop-table-2.jpg",
 						"url": "#"
 						},{ 
 						"text": "Norwegian wood and some pretty cool view",
-						"image": "http://static5.depositphotos.com/1003149/522/v/950/depositphotos_5221589-Business-background-vector.jpg",
+						"image": "http://www.spartadigital.co.uk/wp-content/uploads/2015/04/Social-Media-Marketing-Campaigns-Marketing.jpg",
 						"url": "#"
 						},{ 
 						"text": "Some text I don't know what",
@@ -13,7 +13,7 @@ var highlight_content = [{
 						"url": "#"
 						},{ 
 						"text": "Should I stay or Should I go???",
-						"image": "http://www.nortconsulting.net/img_external/gallery/laptop-table-2.jpg",
+						"image": "http://www.bookicious.com/img/bk.jpg",	
 						"url": "#"
 						}];
 
@@ -50,13 +50,44 @@ var we_content = [{	"text": "Reach people with engaging storytelling about compl
 
 var what_we_do = [
 					{
-						'image': "http://kurld.com/images/wallpapers/image/image-10.jpg"
+						'image': "images/what-we-do/storytelling.jpg",
+						'text': {
+							'headline': 'Storytelling',
+							'full-text': [
+								"Infographics and Factographs (Stalin, Don’t Limit Her Possibilities, Maternal Mortality)",
+								"Gifographics and Animations (gender-based abortions, be healthy, road safety)",
+								"Web Sites and Interactive Data Visualizations (Speaking Stones, Lari Explorer, gender wage gap)"							]
+						}
 					},{
-						'image': "http://www.west-crete.com/img/panoramas/gingilos-psilafi-large.jpg"
+						'image': "images/what-we-do/tools.jpg",
+						'text': {
+							'headline': 'Tools for storytelling and data analysis',
+							'full-text': [
+								"StoryBuilder",
+								"Data Analysis (Xtraktr)",
+								"Bla Bla Main Bla"
+							]
+						}
 					},{
-						'image': "http://www.tate.org.uk/art/images/work/T/T08/T08738_10.jpg"
+						'image': "images/what-we-do/training.jpg",
+						'text': {
+							'headline': 'Education Trainings and Workshops (School of Data)',
+							'full-text': [
+								"StoryBuilder",
+								"Data Analysis (Xtraktr)",
+								"Bla Bla Main Bla"
+							]
+						}
 					},{
-						'image': "http://petecaswell.co.uk/wp/wp-content/uploads/2013/10/IMG_4572.jpg"
+						'image': "images/what-we-do/campaign.jpg",
+						'text': {
+							'headline': 'Advocacy Campaigns',
+							'full-text': [
+								"#behealthy",
+								"#rightsnotflowers",
+								"#sharetheroad"
+							]
+						}
 					}
 				];
 
@@ -160,7 +191,6 @@ function navbar_scroll(){
 
 	$( ".nav-dropdown" ).change(function() {
 		if( $(window).scrollTop() >= scrollTop){
-			alert();
 			$('.nav-dropdown').css( "top", '10vh');
 			$('.nav-dropdown').css( "height", '90vh');
 		}  		
@@ -202,12 +232,19 @@ function load_who_are_we(){
 	});
 }
 
+function display_do_whole_text(index){
+	var text_arr = what_we_do[index - 1]['text'];
+	var div = $('#do' + index);
+	div.append('<h1 class=\'do-whole-text\'>' + text_arr['headline'] + '</h1>');
+}
+
 var show_hide_image = function(event){
 	var index = event.data.index;	
 	var mission = event.data.mission;
 	var chosen_img_background = $( ".do div:nth-child(" + index + ")").css('background-image');
 	if(do_displayed || mission == 'leave'){
-		load_background_images();
+		$('.do-whole-text').html("");
+		load_background_images_and_text();
 		if(mission == 'click'){
 			$('.do div:nth-child('+ index +')').unbind( "click" );
 			what_we_do_events();
@@ -216,6 +253,8 @@ var show_hide_image = function(event){
 	}
 	else{
 		$('.do > div').css('background-image', chosen_img_background);
+		$('.do > div > div').html("");
+		display_do_whole_text(index);
 		if( mission == 'click'){
 			$('.do > div:not(:nth-child('+ index +'))').unbind( "click" );
 			$('.do > div').unbind( "mouseenter" );
@@ -226,18 +265,11 @@ var show_hide_image = function(event){
 	}
 }
 
-var test = function(event){
-	var index = event.data.index;	
-	var mission = event.data.mission;
-	var chosen_img_background = $( ".do div:nth-child(" + index + ")").css('background-image');
-	$('.do > div').css('background-image', chosen_img_background);
-	alert();
-}
-
-function load_background_images(){
+function load_background_images_and_text(){
 	var i = 1;
 	what_we_do.forEach(function(content) {
     	$('#do'+ i).css( "background-image",  'url('+ content['image'] + ') ');
+    	$('#do'+ i + " div").html('<p>' + content['text']['headline'] + '</p>');	
     	i++;
     });	
 }
@@ -247,11 +279,12 @@ function load_what_we_do(){
 	what_we_do.forEach(function(content) {
 		$('.do').append('<div class="do-box" id="do' + (i + 1) + '"></div>');	
     	var last = $('.do .do-box').last();
-    	last.css( "background-position",  i * (-150 / what_we_do_num) + 'vh bottom');
+    	last.css( "background-position",  i * (-180 / what_we_do_num) + 'vh bottom');
+  		last.append("<div> </div>");
     	i++;
     });
 
-   load_background_images();
+   load_background_images_and_text();
 }
 
 function what_we_do_events(){
