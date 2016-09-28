@@ -372,36 +372,55 @@ ul{
 	margin-top: 4vh;
 	height: 65vh;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
 	position: relative;
+	padding: 5vh 0 5vh 0;
 }
-
-.do-whole-text{
+/*
+.do-whole-image{
 	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-.do div {
-	height: 100%;
-	width: calc(180vh / 4);
-	margin: 0 0.7vh 0 0.7vh;	
+	top: 14vh;
+	left: calc((100vw - 180vh)/2);
+	width: 183vh;
+	height: 65vh;
+	font-size: 2em;
+	z-index: 800;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+*/
+.do-box .over {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: transparent;
+	z-index: 140;
+}
 
-.do div div {
+
+.do-box {
+	height: 100%;
+	width: calc(97vw / 4);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+}
+
+.do-box .headline {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 	text-align: center;
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0,0,0,0.3);
 	display: flex;
 	justify-content: center;
 }
 
-.do div div p {
+.do-box .headline p {
 	padding: 35% 2% 2% 2%;
 
 }

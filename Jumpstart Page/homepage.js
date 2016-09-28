@@ -48,52 +48,10 @@ var we_content = [{	"text": "Reach people with engaging storytelling about compl
 					'main-word': 1
 					}];
 
-var what_we_do = [
-					{
-						'image': "images/what-we-do/storytelling.jpg",
-						'text': {
-							'headline': 'Storytelling',
-							'full-text': [
-								"Infographics and Factographs (Stalin, Don’t Limit Her Possibilities, Maternal Mortality)",
-								"Gifographics and Animations (gender-based abortions, be healthy, road safety)",
-								"Web Sites and Interactive Data Visualizations (Speaking Stones, Lari Explorer, gender wage gap)"							]
-						}
-					},{
-						'image': "images/what-we-do/tools.jpg",
-						'text': {
-							'headline': 'Tools for storytelling and data analysis',
-							'full-text': [
-								"StoryBuilder",
-								"Data Analysis (Xtraktr)",
-								"Bla Bla Main Bla"
-							]
-						}
-					},{
-						'image': "images/what-we-do/training.jpg",
-						'text': {
-							'headline': 'Education Trainings and Workshops (School of Data)',
-							'full-text': [
-								"StoryBuilder",
-								"Data Analysis (Xtraktr)",
-								"Bla Bla Main Bla"
-							]
-						}
-					},{
-						'image': "images/what-we-do/campaign.jpg",
-						'text': {
-							'headline': 'Advocacy Campaigns',
-							'full-text': [
-								"#behealthy",
-								"#rightsnotflowers",
-								"#sharetheroad"
-							]
-						}
-					}
-				];
+
 
 var cur_hl = 0;
 var auto_slideshow;
-var what_we_do_num = 4;
 var do_displayed = false;
 
 function append_content_to_highlights(){
@@ -230,70 +188,6 @@ function load_who_are_we(){
     	last.append('<img src="' + content['image'] + '">');
     	last.append('<p>' + split_we_text(content) + '</p>');
 	});
-}
-
-function display_do_whole_text(index){
-	var text_arr = what_we_do[index - 1]['text'];
-	var div = $('#do' + index);
-	div.append('<h1 class=\'do-whole-text\'>' + text_arr['headline'] + '</h1>');
-}
-
-var show_hide_image = function(event){
-	var index = event.data.index;	
-	var mission = event.data.mission;
-	var chosen_img_background = $( ".do div:nth-child(" + index + ")").css('background-image');
-	if(do_displayed || mission == 'leave'){
-		$('.do-whole-text').html("");
-		load_background_images_and_text();
-		if(mission == 'click'){
-			$('.do div:nth-child('+ index +')').unbind( "click" );
-			what_we_do_events();
-		}
-		do_displayed = false;
-	}
-	else{
-		$('.do > div').css('background-image', chosen_img_background);
-		$('.do > div > div').html("");
-		display_do_whole_text(index);
-		if( mission == 'click'){
-			$('.do > div:not(:nth-child('+ index +'))').unbind( "click" );
-			$('.do > div').unbind( "mouseenter" );
-			$('.do > div').unbind( "mouseleave" );
-			do_displayed = true;
-		}
-
-	}
-}
-
-function load_background_images_and_text(){
-	var i = 1;
-	what_we_do.forEach(function(content) {
-    	$('#do'+ i).css( "background-image",  'url('+ content['image'] + ') ');
-    	$('#do'+ i + " div").html('<p>' + content['text']['headline'] + '</p>');	
-    	i++;
-    });	
-}
-
-function load_what_we_do(){
-	var i = 0;
-	what_we_do.forEach(function(content) {
-		$('.do').append('<div class="do-box" id="do' + (i + 1) + '"></div>');	
-    	var last = $('.do .do-box').last();
-    	last.css( "background-position",  i * (-180 / what_we_do_num) + 'vh bottom');
-  		last.append("<div> </div>");
-    	i++;
-    });
-
-   load_background_images_and_text();
-}
-
-function what_we_do_events(){
-	var i = 1;
-	for(i; i<=what_we_do_num; i++){
-		$('#do' + i).click({index: i, mission: 'click'}, show_hide_image);
-		$('#do' + i).mouseenter({index: i, mission: 'enter'}, show_hide_image);
-		$('#do' + i).mouseleave({index: i, mission: 'leave'}, show_hide_image);
-	}
 }
 
 $( document ).ready(function() {
