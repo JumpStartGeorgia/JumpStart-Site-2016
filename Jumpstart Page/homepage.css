@@ -499,6 +499,7 @@ ul {
 	justify-content: space-around;
 	align-items: center;
 	background-color: #3f3f3f;
+	font-family: 'Poppins', sans-serif;
 }
 
 #contact .do-headline .section-name  {
@@ -513,22 +514,28 @@ ul {
 	position: relative;
 }
 
+.contact-triple {
+	margin-top: 3%;
+}
+
 .contact-triple > * {
 	display: inline-block;
 }
 
 .contact-triple div {
-	width: 10vw;
+	width: 7em;
 }
 
 .contact-triple p {
-	margin: 0 0 0 2vw;
+	margin: 0 0 0 1vw;
+	color: #cdcdcd;
 }
 
 
 .contact-triple div p{
 	float: right;
 	margin: 0;
+	color: #ff4500;
 }
 
 .contact-triple div > * {

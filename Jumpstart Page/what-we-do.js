@@ -7,7 +7,8 @@ var what_we_do = [
 							'full-text': [
 								"Infographics and Factographs",
 								"Gifographics and Animations",
-								"Web Sites and Interactive Data Visualizations"							]
+								"Web Sites and Interactive Data Visualizations"	
+								]
 						}
 					},{
 						'image': "images/what-we-do/tools.jpg",
@@ -40,20 +41,24 @@ var what_we_do = [
 				];
 
 var what_we_do_num = 4;
-var do_displayed;
+var clicked;
 
 var show_hide_image = function(event){
 	var index = event.data.index;	
 	var mission = event.data.mission;
 	var elem = $('.do').find('.do-box').eq(index);
-	if(do_displayed[index] || mission == 'leave') {
+	if(clicked[index] && mission == 'leave'){
+		return;
+	}else if ( (clicked[index] && mission != 'enter') || mission == 'leave') {
 		load_background_color_and_text(index);
-		if(mission == 'click'){
-			elem.mouseenter({index: index, mission: 'enter'}, show_hide_image);
-			elem.mouseleave({index: index, mission: 'leave'}, show_hide_image);
-		}
-		do_displayed[index] = false;
+		clicked[index] = false;
 	}else {
+		var i = 0;
+		for(i; i<what_we_do_num; i++){
+			if(i == index || clicked[i]) continue;
+			clicked[i] = true;
+			$('.do').find('.do-box').eq(i).trigger('click');
+		}
 		elem.css('background-color', 'rgba(255, 255, 255, 0.04)');
 		var full_text = '';
 		what_we_do[index]['text']['full-text'].forEach(function(text){
@@ -61,9 +66,7 @@ var show_hide_image = function(event){
 		});
 		elem.find('.headline').html("<ul>" + full_text + "</ul>");
 		if( mission == 'click'){
-			elem.unbind( "mouseenter" );
-			elem.unbind( "mouseleave" );
-			do_displayed[index] = true;
+			clicked[index] = true;
 		}
 	}
 }
@@ -91,12 +94,12 @@ function load_what_we_do(){
 function what_we_do_events(){
 	var elem;
 	var i = 0;
-	do_displayed = [];
+	clicked = [];
 	for(i; i<=what_we_do_num; i++){
 		elem = $('.do').find('.do-box').eq(i);
 		elem.click({index: i, mission: 'click'}, show_hide_image);
 		elem.mouseenter({index: i, mission: 'enter'}, show_hide_image);
 		elem.mouseleave({index: i, mission: 'leave'}, show_hide_image);
-		do_displayed.push(false);
+		clicked.push(false);
 	}
 }
