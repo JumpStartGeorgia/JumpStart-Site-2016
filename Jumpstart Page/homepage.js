@@ -52,7 +52,6 @@ var we_content = [{	"text": "Reach people with engaging storytelling about compl
 
 var cur_hl = 0;
 var auto_slideshow;
-var do_displayed = false;
 
 function append_content_to_highlights(){
 	highlight_content.forEach(function(content) {
@@ -223,6 +222,7 @@ $( document ).ready(function() {
     auto_slideshow  = window.setInterval(change_highlight, 3500);
     load_what_we_do();
     what_we_do_events();
+    load_partners();
 });
 
 

@@ -5,9 +5,9 @@ var what_we_do = [
 						'text': {
 							'headline': 'Storytelling',
 							'full-text': [
-								"Infographics and Factographs (Stalin, Don’t Limit Her Possibilities, Maternal Mortality)",
-								"Gifographics and Animations (gender-based abortions, be healthy, road safety)",
-								"Web Sites and Interactive Data Visualizations (Speaking Stones, Lari Explorer, gender wage gap)"							]
+								"Infographics and Factographs",
+								"Gifographics and Animations",
+								"Web Sites and Interactive Data Visualizations"							]
 						}
 					},{
 						'image': "images/what-we-do/tools.jpg",
@@ -15,18 +15,15 @@ var what_we_do = [
 							'headline': 'Tools for storytelling and data analysis',
 							'full-text': [
 								"StoryBuilder",
-								"Data Analysis (Xtraktr)",
-								"Bla Bla Main Bla"
+								"Data Analysis (Xtraktr)"
 							]
 						}
 					},{
 						'image': "images/what-we-do/training.jpg",
 						'text': {
-							'headline': 'Education Trainings and Workshops (School of Data)',
+							'headline': 'Education Trainings and Workshops',
 							'full-text': [
-								"StoryBuilder",
-								"Data Analysis (Xtraktr)",
-								"Bla Bla Main Bla"
+								"School of Data"
 							]
 						}
 					},{
@@ -52,16 +49,20 @@ var show_hide_image = function(event){
 	if(do_displayed[index] || mission == 'leave') {
 		load_background_color_and_text(index);
 		if(mission == 'click'){
-			elem.find('.over').mouseenter({index: index, mission: 'enter'}, show_hide_image);
-			elem.find('.over').mouseleave({index: index, mission: 'leave'}, show_hide_image);
+			elem.mouseenter({index: index, mission: 'enter'}, show_hide_image);
+			elem.mouseleave({index: index, mission: 'leave'}, show_hide_image);
 		}
 		do_displayed[index] = false;
 	}else {
-		elem.css('background-image', 'url(' + what_we_do[index]['image'] + ')');
-		elem.find('.headline').html("");
+		elem.css('background-color', 'rgba(255, 255, 255, 0.04)');
+		var full_text = '';
+		what_we_do[index]['text']['full-text'].forEach(function(text){
+			full_text += '<li><a href="#">' + text + '<a></li>';
+		});
+		elem.find('.headline').html("<ul>" + full_text + "</ul>");
 		if( mission == 'click'){
-			elem.find('.over').unbind( "mouseenter" );
-			elem.find('.over').unbind( "mouseleave" );
+			elem.unbind( "mouseenter" );
+			elem.unbind( "mouseleave" );
 			do_displayed[index] = true;
 		}
 	}
@@ -69,8 +70,7 @@ var show_hide_image = function(event){
 
 function load_background_color_and_text(index){
 	var elem = $('.do').find('.do-box').eq(index);
-	elem.css('background-image', 'none');
-	elem.css( "background-color",  'red');
+	elem.css( "background-color",  'rgba(0,0,0,0.3)');
 	elem.find('.headline').html('<p>' + what_we_do[index]['text']['headline'] + '</p>');	
 }
 
@@ -81,6 +81,7 @@ function load_what_we_do(){
     	var last = $('.do .do-box').last();
   		last.append("<div class='headline'> </div>");
   		last.append("<div class='over'> </div>");
+  		//last.css( "background-position",  i * (-190 / what_we_do_num) + 'vh bottom');
   		load_background_color_and_text(i);
     	i++;
     });
@@ -92,7 +93,7 @@ function what_we_do_events(){
 	var i = 0;
 	do_displayed = [];
 	for(i; i<=what_we_do_num; i++){
-		elem = $('.do').find('.do-box').eq(i).find('.over');
+		elem = $('.do').find('.do-box').eq(i);
 		elem.click({index: i, mission: 'click'}, show_hide_image);
 		elem.mouseenter({index: i, mission: 'enter'}, show_hide_image);
 		elem.mouseleave({index: i, mission: 'leave'}, show_hide_image);
