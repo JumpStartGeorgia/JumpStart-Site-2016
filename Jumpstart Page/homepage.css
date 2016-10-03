@@ -495,9 +495,9 @@ ul {
 }
 
 #partners img{
-	margin: 3%;
-	height: 80%;
-	width: auto;
+	width: 150px;
+	height: auto;
+	margin: 20px 30px 20px 30px;
 }
 	
 				/*Contact*/
