@@ -49,7 +49,6 @@ var we_content = [{	"text": "Reach people with engaging storytelling about compl
 					}];
 
 
-
 var cur_hl = 0;
 var auto_slideshow;
 
@@ -64,17 +63,7 @@ function append_content_to_highlights(){
 
 function show_first_highlight(){
 	$( ".slideshow li:nth-child(" + 1 + ")" ).show();
-//	highlight_button(2, true);
 };
-
-// function highlight_button(b_num, first){
-// 	if(typeof first === "undefined"){
-// 		$( ".slideshow-buttons").children().css("background-color", "rgba(255,255,255,0.8)");
-// 		// $( ".slideshow-buttons").children().css("color", "rgba(0,0,0,0.8)");
-// 	}
-// 	$( ".slideshow-buttons button:nth-child(" + b_num  + ")" ).css("background-color", "rgba(220,210,210,0.81)");
-// 	// $( ".slideshow-buttons button:nth-child(" + b_num  + ")" ).css("color", "white");
-//}
 
 var change_highlight = function(direction, hl_num){
 	var curr_slide, next_slide;
