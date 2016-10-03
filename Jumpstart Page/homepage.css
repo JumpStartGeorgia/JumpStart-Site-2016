@@ -157,24 +157,26 @@ ul {
 				/*FIRST SECTION*/
 
 #first-section{
-	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	top: 0;
+	left: 0;
+}	
+
+.white-space {
+	height: 15vh;
 }
 				/*highlights slideshow*/
 .highlights {
 	width: 100%;
 	height: 65.7vh;
 	background-color: gray;
-	position: relative;
-	top: 15vh;
 	left: 0;
+	margin-bottom: 3.3vh;
 }	
 
+
 .highlights .slideshow {
-	position: absolute;
+	position: relative;
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -216,7 +218,7 @@ ul {
 
 .slideshow-buttons { 
 	position: absolute;
-	bottom: 1%;
+	top: 76.7vh;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -243,15 +245,13 @@ ul {
 
 				/*DONATE*/
 .donate {
-	position: absolute;
-	top: 82vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	font-family: 'Poppins', sans-serif;
 	background-color: rgba(248,248,248,1);
 	min-height: 16vh;
-	margin-bottom: 10vh;
+	margin-bottom: 2vh;
 }
 
 .donate .us-text {
