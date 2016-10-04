@@ -448,20 +448,21 @@ ul {
 
  .do-box .headline ul {
  	padding: 35% 0 0 0;
- 	width: 85%;
+ 	width: 90%;
+ 	text-align: center;
  }
 
 .do-box .headline ul li {
 	width: 100%;	
 	margin: 1vh 0 1vh 0;
 	font-size: 1.3rem;
-	text-align: left;
+	text-align: center;
 	color: white;
 	border-style: solid;
-	border-width: 0 0 1px 1px;
+	border-width: 0 0 1px 0;
 	/*border-radius: 10px;*/
 	z-index: 110;
-	padding: 2% 2% 2% 2%;
+	padding: 2% 0 2% 0;
 }
 
 .do-box .headline ul li:hover{
@@ -637,6 +638,8 @@ ul {
 }
 
 #contact-form input[type=submit]{
+	width: auto;
+	height: auto;
 	padding: 0.5rem 3rem 0.5rem 3rem;
 }
 
@@ -644,7 +647,6 @@ ul {
 	display: flex;
 	justify-content: center;	
 	width: 100vw;
-
 }
 
 		/*MEDIA QUERIES*/
@@ -957,6 +959,7 @@ ul {
 
 	#contact-form input[type=text], #contact-form textarea {
 		width: 25rem;
+		height: auto;
 		margin-left: 2rem;
 		padding: 0.5rem 0 0.5rem 0.4rem;
 	}
