@@ -169,16 +169,12 @@ ul {
 .highlights {
 	width: 100%;
 	height: 65.7vh;
-	background-color: gray;
-	left: 0;
 	margin-bottom: 3.3vh;
+	position: relative;
 }	
-
 
 .highlights .slideshow {
 	position: relative;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -216,26 +212,28 @@ ul {
 }
 
 
-.slideshow-buttons { 
+.slideshow-buttons {
 	position: absolute;
-	top: 76vh;
+	bottom: 10px;
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	z-index: 50;
 }
 
 .slideshow-buttons button {
-	width: 20px;
-	height: 20px;
+	width: 18px;
+	height: 18px;
 	margin: 0 0.5% 0 0.5%;
-	background: none;
 	color: rgba(0,0,0,0.5);
-	background-color: rgba(255,255,255,0.6);	
-	border: solid 2.2px;
-	border-radius: 5px;
+	background-color: rgba(255,255,255,0.8);	
+	border: none;
+	border: solid 1px;
+	border-radius: 6px;
 	font-size: 0.7rem;
 	font-weight: 900;
 	padding: 1px;
+
 }
 
 .slideshow-buttons button:focus {
@@ -417,13 +415,15 @@ ul {
 
 .do-box{
 	height: 30vw;
-	width: calc(100vw/4);
+	width: calc((100vw - 0.3px * 4)/4);
+	padding: 0;
+	margin: 0;
 	background-color: none;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
 	position: relative;
-	border: solid 0.3px;
+	border-right: solid 0.3px;
 }
 
 .do-box .headline {

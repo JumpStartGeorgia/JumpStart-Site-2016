@@ -68,7 +68,6 @@ function show_first_highlight(){
 var change_highlight = function(direction, hl_num){
 	var curr_slide, next_slide;
 	var manual_change = false;
-
 	if(typeof direction === "undefined"){
 		direction = 1;		
 	}	
@@ -92,8 +91,8 @@ var change_highlight = function(direction, hl_num){
 		cur_hl = hl_num - 1;
 	}
 
-	$(".slideshow").children().hide();
-	$(".slideshow").children().stop(true, true); 
+	$(".slideshow").find('li').hide();
+	$(".slideshow").find('li').stop(true, true); 
 	$( ".slideshow li:nth-child(" + next_slide + ")" ).fadeIn(1000);
 	//highlight_button(next_slide + 1);
 	if(manual_change){		
