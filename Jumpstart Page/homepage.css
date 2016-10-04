@@ -50,7 +50,6 @@ ul {
 
 .navbar li {
 	display: inline-block;
-	width: auto;
 	text-align: center;
 }
 
@@ -376,9 +375,11 @@ ul {
 
 
 .do {
+	margin: 0;
+	padding: 0;
 	margin-top: 4vh;
 	height: auto;
-	width: auto;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -415,7 +416,7 @@ ul {
 
 .do-box{
 	height: 30vw;
-	width: calc((100vw - 0.3px * 4)/4);
+	width: calc((100vw - 0.3px*3)/4);
 	padding: 0;
 	margin: 0;
 	background-color: none;
@@ -426,10 +427,15 @@ ul {
 	border-right: solid 0.3px;
 }
 
+.do div:last-child {
+	border-right: 0;
+}
+
 .do-box .headline {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	padding: 0;
 	text-align: center;
 	background-color: rgba(0,0,0,0.2);
 	display: flex;
@@ -503,7 +509,6 @@ ul {
 	align-items: center;
 	background-color: #3f3f3f;
 	font-family: 'Poppins', sans-serif;
-	width: auto;
 	height: auto;
 }
 
@@ -520,20 +525,15 @@ ul {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	height: auto;
-	width: 100vw;
+	margin: 0;
 }
 
 .contact-item {
-	height: auto;
-	width: auto;
 	margin: 0 1vw 3vh 1vw;
 	margin-bottom: 3vh;
 }
 
 .contact-triple {
-	width: auto;
-	height: auto;
 	margin-bottom: 3%;
 }
 
@@ -601,7 +601,6 @@ ul {
 }
 
 #contact-form input, #contact-form textarea {
-	height: auto;	
 	float: right;
 	font-size: 1.2rem;
 	font-family: 'Poppins', sans-serif;
@@ -622,7 +621,6 @@ ul {
 }
 
 #contact-form input[type=submit]{
-	width: auto;
 	padding: 0.5rem 3rem 0.5rem 3rem;
 }
 
@@ -630,6 +628,7 @@ ul {
 	display: flex;
 	justify-content: center;	
 	width: 100vw;
+
 }
 
 		/*MEDIA QUERIES*/
@@ -717,7 +716,6 @@ ul {
 	}
 
 	.donate .donate-button {
-		height: auto;
 		margin-bottom: 2%;
 		margin-right: 0;
 	}
