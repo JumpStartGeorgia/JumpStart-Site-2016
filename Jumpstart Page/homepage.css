@@ -187,7 +187,10 @@ ul {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	background-position: center 40%;
+	background-attachment: fixed;
 	display: none;
+	z-index: -1;
 }
 
 .highlight-text {
@@ -559,7 +562,7 @@ ul {
 }
 
 .contact-triple div {
-	width: 9.9rem;
+	width: 10rem;
 }
 
 .contact-triple p {
@@ -582,16 +585,16 @@ ul {
 	color: #ff4500;
 }
 
+.contact-triple div img {
+	max-height: 15px;
+	width: 15px;
+}
 
 .contact-triple div > * {
 	display: inline-block;
 }
 
-.contact-triple img {
-	height: 15px;
-	width: auto;
-	margin-right: 30px
-}
+
 
 #contact-form form {
 	display: flex;
@@ -646,7 +649,7 @@ ul {
 #share {
 	display: flex;
 	justify-content: center;	
-	width: 100vw;
+	width: 100%;
 }
 
 		/*MEDIA QUERIES*/
@@ -692,6 +695,13 @@ ul {
 
 
 				/*HIGHLIGHTS*/
+
+@media screen and (max-width: 1024) {
+	.highlights .slideshow li {
+		background-attachment: fixed;
+	}
+}
+
 @media only screen 
   and (min-device-width: 375px) 
   and (max-device-width: 667px){ 
@@ -899,6 +909,13 @@ ul {
 
 }
 
+@media screen and (max-width: 320px) {
+
+	.do-wrap {
+		font-size: 1.2rem;
+	}
+
+}
 			/*Contact*/
 
 @media screen and (orientation: portrait) and (max-width: 675px) {

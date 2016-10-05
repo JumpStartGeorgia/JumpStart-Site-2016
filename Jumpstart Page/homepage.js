@@ -56,7 +56,7 @@ function append_content_to_highlights(){
 	highlight_content.forEach(function(content) {
     	$('.slideshow').append('<li></li>');
     	var last = $( ".slideshow li" ).last();
-    	last.css( "background", 'url('+ content['image'] + ') center 40% fixed');
+    	last.css( "background-image", 'url('+ content['image'] + ')');
     	last.append('<div class="highlight-text"><a href="' + content['url'] +'">' + content['text'] + '</a></div>' );
 	});
 };
