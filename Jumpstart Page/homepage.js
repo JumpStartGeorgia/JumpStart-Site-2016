@@ -117,17 +117,13 @@ function navbar_scroll(){
     $(window).scroll(function () {		
 		if($(window).scrollTop() >= scrollTop){
 			$('.nav-container').css( "height", '10vh');
-			$('.nav-dropdown').css( "top", '10vh');
-			$('.nav-dropdown').css( "height", '90vh');
 			$('#jumpstart-logo-big').fadeOut(0, function(){
 				$('#jumpstart-logo-small').show(0);
 			});
 			
 		}
 		else{
-			$('.nav-container').css( "height", '15vh');			
-			$('.nav-dropdown').css( "top", '15vh');
-			$('.nav-dropdown').css( "height", '85vh');
+			$('.nav-container').css( "height", '15vh');		
 			$('#jumpstart-logo-small').fadeOut(0, function(){
 				$('#jumpstart-logo-big').show(0);
 			});
@@ -180,10 +176,6 @@ function load_who_are_we(){
 $( document ).ready(function() {
     $( ".show-menu" ).click(function( event ){
 		$('.navbar').toggleClass('nav-dropdown');
-		var nav_top = $('.nav-container').height() * 100 / $(window).height();
-		var nav_height = ($(window).height() - $('.nav-container').height()) * 100 / $(window).height();
-		$('.nav-dropdown').css( "top", "" + nav_top + "vh");
-		$('.nav-dropdown').css( "height", "" + nav_height + "vh");
 	});
 
 	$( window ).resize(function() {		
