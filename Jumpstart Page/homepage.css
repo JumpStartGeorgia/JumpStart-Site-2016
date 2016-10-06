@@ -192,6 +192,7 @@ ul {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-position: center 40%;
 	background-attachment: fixed;
 	display: none;
@@ -701,9 +702,9 @@ ul {
 
 				/*HIGHLIGHTS*/
 
-@media screen and (max-width: 1024) {
+@media screen and (max-width: 1024px) {
 	.highlights .slideshow li {
-		background-attachment: fixed;
+		background-attachment: scroll;
 	}
 }
 
@@ -846,6 +847,11 @@ ul {
 
 
 				/*WHAT WE DO MEDIA*/
+@media screen and (max-width: 1024px) {
+	.do-box {
+		background-attachment: scroll;
+	}
+}
 
 @media screen and (orientation: portrait),
 (max-height: 700px) and (max-width: 800px ){
@@ -853,14 +859,9 @@ ul {
 		flex-direction: column;
 	}
 
-	.do-box{
+	.do-box {
 		height: calc(85vh/4);
 		width: 100vw;
-		background-color: none;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center center;
-		position: relative;
 		border-style: solid;
 		border-width: 0 0 1vh 0;
 	}
@@ -898,6 +899,19 @@ ul {
 			/*Partners*/
 
 @media screen and (orientation: portrait) {
+
+	#partners a {
+		margin: 10px 30px 10px 30px;
+		width: 200px;
+	}
+
+	#partners img {
+		padding: 10px;
+		width: 180px;
+		height: auto;
+		opacity: 1;
+	}
+
 
 	#partners-wrap {
 		background-color: #fbf9f3;

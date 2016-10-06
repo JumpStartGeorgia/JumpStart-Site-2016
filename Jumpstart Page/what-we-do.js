@@ -98,8 +98,30 @@ function what_we_do_events(){
 	for(i; i<=what_we_do_num; i++){
 		elem = $('.do').find('.do-box').eq(i);
 		elem.click({index: i, mission: 'click'}, show_hide_image);
-		elem.mouseenter({index: i, mission: 'enter'}, show_hide_image);
-		elem.mouseleave({index: i, mission: 'leave'}, show_hide_image);
+		if($(window).width() > 1024){
+			elem.mouseenter({index: i, mission: 'enter'}, show_hide_image);
+			elem.mouseleave({index: i, mission: 'leave'}, show_hide_image);
+		}
 		clicked.push(false);
 	}
+
+	$(window).resize(function() {
+		var width = $(window).width();
+		var i = 0;		
+		for(i; i<=what_we_do_num; i++){
+			elem = $('.do').find('.do-box').eq(i);
+			if(width > 1024){
+				elem.unbind('mouseenter');
+				elem.unbind('mouseleave');
+				elem.mouseenter({index: i, mission: 'enter'}, show_hide_image);
+				elem.mouseleave({index: i, mission: 'leave'}, show_hide_image);
+			}
+			else{
+				elem.unbind('mouseenter');
+				elem.unbind('mouseleave');
+			}
+		}
+	});
+
 }
+
